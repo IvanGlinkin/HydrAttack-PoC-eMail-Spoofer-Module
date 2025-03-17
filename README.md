@@ -7,18 +7,12 @@
 
 ### Table of content
 
-[Legal Disclaimer](#%EF%B8%8F-legal-disclaimer)
-
-[What is HydrAttack](#--what-is-hydrattack)
-
-[How To: Detailed](#detailed-instruction)
-
-[How To: Short](#short-instruction)
-
-[The risk of SPF/DKIM/DMARC absent](#the-risk-of-spfdkimdmarc-absent)
-
-[Report description](#report-description)
-
+[Legal Disclaimer](#%EF%B8%8F-legal-disclaimer)\
+[What is HydrAttack](#--what-is-hydrattack)\
+[How To: Detailed](#detailed-instruction)\
+[How To: Short](#short-instruction)\
+[The risk of SPF/DKIM/DMARC absent](#the-risk-of-spfdkimdmarc-absent)\
+[Report description](#report-description)/
 [Step-by-step report](#step-by-step-report)
 
 ---
