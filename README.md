@@ -3,13 +3,19 @@
 **HydrAttack** PoC eMail Spoofer Module is designed to test the security posture of a domain against email spoofing attacks. It performs steps to SPF &amp; DMARC Check (the module verifies whether the target domain has SPF and DMARC records configured), Spoofing Attempt (if the domain lacks proper SPF and DMARC protections, the module spins up a web server and attempts to send spoofed emails from that domain) and Verification (the spoofed email delivery is checked to assess the real-world risk of exploitation).
 ![](https://github.com/IvanGlinkin/media_support/blob/main/HydrAttack%20PoC%20-%20Email%20Spoofer%20Module%20Logo.png?raw=true)
 
+---
+
 ## ⚠️ Legal Disclaimer
 
 This software and associated materials are intended solely for proof-of-concept (PoC) and security research purposes. Unauthorized use of this code for real-world phishing attacks, fraudulent activities, or any malicious intent is strictly prohibited.
 
+---
+
 ## What is HydrAttack
 
 External Attack Surface Management system ![HydrAttack](https://hydrattack.com/) is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
+
+---
 
 ## HowTo
 
@@ -40,7 +46,6 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
 
 ---
-
      
 ### Short instruction
   
@@ -52,6 +57,7 @@ docker build -t docker-hydrattack-poc-email-spoffer .
 docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer
 ```
 
+---
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
