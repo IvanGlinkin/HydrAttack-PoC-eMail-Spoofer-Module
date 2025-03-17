@@ -13,7 +13,7 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 
 ## HowTo
 <details>
-<spoiler> Detailed instruction</spoiler>
+<summary> Detailed instruction</summary>
 1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
    * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/
@@ -40,7 +40,7 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 </details>
 
 <details>
-<spoiler> Short instruction </spoiler>
+<summary> Short instruction </summary>
 ```
 cd ~/Documents
 git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
