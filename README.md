@@ -13,10 +13,13 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 
 ## HowTo
 
-1. Install the Docker (if you have already had it, just skip this step)
+1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
-   * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/)
+   * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/
    * for MacOS: https://docs.docker.com/desktop/setup/install/mac-install/
+
+2. Download the repository to your PC
+   * 
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
