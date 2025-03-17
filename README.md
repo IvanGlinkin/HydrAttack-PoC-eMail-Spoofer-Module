@@ -48,9 +48,6 @@ External Attack Surface Management system <a href="https://hydrattack.com/" targ
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
 
-
-
-
      
 #### Short instruction
   
@@ -137,7 +134,7 @@ v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@abracadabra.ahha; ruf=mailto:dm
 #### Threat
 Anonymous attacker from Internet
 
-Score
+#### Score
 
 ```
 CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N = 5.3 Medium
