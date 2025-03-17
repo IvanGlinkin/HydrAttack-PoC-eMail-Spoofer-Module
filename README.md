@@ -13,13 +13,14 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 
 ## HowTo
 
+### Detailed instruction
 1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
    * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/
    * for MacOS: https://docs.docker.com/desktop/setup/install/mac-install/
 
 2. Download the repository to your PC
-   * Using Git: git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
+   * Using Git: `git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git`
    * Download ZIP: https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module/archive/refs/heads/main.zip
    
 3. Go to the folder
@@ -33,10 +34,18 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 5. Launch the container
    
    `docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer`
-   where:
+   
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
   
+### Short instruction (for advanced Linux users)
+```
+cd ~/Documents
+git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
+cd HydrAttack-PoC-eMail-Spoofer-Module
+docker build -t docker-hydrattack-poc-email-spoffer .
+docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer
+```
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
