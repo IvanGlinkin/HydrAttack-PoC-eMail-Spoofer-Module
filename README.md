@@ -58,8 +58,8 @@ External Attack Surface Management system <a href="https://hydrattack.com/" targ
 cd ~/Documents
 git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
 cd HydrAttack-PoC-eMail-Spoofer-Module
-docker build -t docker-hydrattack-poc-email-spoffer .
-docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer
+docker build -t docker-hydrattack-poc-email-spoofer .
+docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoofer
 ```
 
 ---
