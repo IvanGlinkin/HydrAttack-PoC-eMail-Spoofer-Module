@@ -64,6 +64,34 @@ docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-h
 
 ---
 
+### Report description
+
+#### Description
+The absence of SPF/DMARC records allow spoofing of the abracadabra.ahha domain.
+
+#### Impact
+Send unauthorized emails from the domain of the company - abracadabra.ahha, supplanting their identity and facilitating the realization of phishing attacks.
+
+#### Recommendation
+Configure SPF/DMARC records with policies suitable for the domain:
+
+```
+v=spf1 include:mx.abracadabra.ahha -all
+v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@abracadabra.ahha; ruf=mailto:dmarc-failures@abracadabra.ahha; pct=100;
+```
+
+#### Threat
+Anonymous attacker from Internet
+
+Score
+
+```
+CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N = 5.3 Medium
+```
+
+
+---
+
 ### The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
 
