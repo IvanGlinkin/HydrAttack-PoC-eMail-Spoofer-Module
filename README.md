@@ -19,8 +19,8 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * for MacOS: https://docs.docker.com/desktop/setup/install/mac-install/
 
 2. Download the repository to your PC
-  * Using Git: git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
-  * Download ZIP: https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module/archive/refs/heads/main.zip
+   * Using Git: git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
+   * Download ZIP: https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module/archive/refs/heads/main.zip
    
 3. Go to the folder
    
