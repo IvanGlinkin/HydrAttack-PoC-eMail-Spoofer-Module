@@ -43,8 +43,8 @@ When an email is sent, the mail server uses the private key to create a DKIM sig
 DMARC record is also published in DNS and If an email fails SPF or DKIM, the recipient’s mail server follows the DMARC policy:
 ```
 •	p=none:	       Take no action, just monitor
-•	p=quarantine:	 Mark as spam
-•	p=reject: 	   Block the email entirely
+•	p=quarantine:	Mark as spam
+•	p=reject: 	 Block the email entirely
 ```
 
 
