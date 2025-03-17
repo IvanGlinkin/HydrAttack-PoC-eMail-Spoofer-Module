@@ -2,7 +2,8 @@
 
 **HydrAttack** PoC eMail Spoofer Module is designed to test the security posture of a domain against email spoofing attacks. It performs steps to SPF &amp; DMARC Check (the module verifies whether the target domain has SPF and DMARC records configured), Spoofing Attempt (if the domain lacks proper SPF and DMARC protections, the module spins up a web server and attempts to send spoofed emails from that domain) and Verification (the spoofed email delivery is checked to assess the real-world risk of exploitation).
 ![](https://github.com/IvanGlinkin/media_support/blob/main/HydrAttack%20PoC%20-%20Email%20Spoofer%20Module%20Logo.png?raw=true)
-[![Watch the video](https://github.com/IvanGlinkin/media_support/raw/refs/heads/main/HydrAttack_Email_Spoofed_Module_POC.mov)
+[![Watch the video]()](https://github.com/IvanGlinkin/media_support/raw/refs/heads/main/HydrAttack_Email_Spoofed_Module_POC.mov)
+
 ---
 
 ### Table of content
