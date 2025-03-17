@@ -14,6 +14,7 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 ## HowTo
 <details>
 <summary> Detailed instruction</summary>
+  
 1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
    * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/
@@ -37,10 +38,12 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
+     
 </details>
 
 <details>
 <summary> Short instruction </summary>
+  
 ```
 cd ~/Documents
 git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
@@ -48,6 +51,7 @@ cd HydrAttack-PoC-eMail-Spoofer-Module
 docker build -t docker-hydrattack-poc-email-spoffer .
 docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer
 ```
+
 </details>
 
 
