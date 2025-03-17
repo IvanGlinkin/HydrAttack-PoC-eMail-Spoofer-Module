@@ -19,7 +19,11 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * for MacOS: https://docs.docker.com/desktop/setup/install/mac-install/
 
 2. Download the repository to your PC
-   * 
+  * Using Git: git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
+  * Download ZIP: https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module/archive/refs/heads/main.zip
+   
+3. Go to the folder
+   
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
