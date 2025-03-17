@@ -13,7 +13,7 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
 
 ## HowTo
 <details>
-<summary> Detailed instruction</summary>
+<summary> ### Detailed instruction</summary>
   
 1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
