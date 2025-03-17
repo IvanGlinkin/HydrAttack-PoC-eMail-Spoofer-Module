@@ -23,7 +23,18 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * Download ZIP: https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module/archive/refs/heads/main.zip
    
 3. Go to the folder
-   
+   * U/Linux: `cd HydrAttack-PoC-eMail-Spoofer-Module`
+   * Windows: `dir HydrAttack-PoC-eMail-Spoofer-Module`
+  
+4. Create an image (DO NOT FORGET ABOUT THE DOT (.) )
+   `docker build -t docker-hydrattack-poc-email-spoffer .`
+
+5. Launch the container
+   `docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer`
+   where:
+   * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
+   * SENDTO - email address, where to send a report, e.g. *your@email.com*
+  
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
