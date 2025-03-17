@@ -7,9 +7,16 @@
 
 This software and associated materials are intended solely for proof-of-concept (PoC) and security research purposes. Unauthorized use of this code for real-world phishing attacks, fraudulent activities, or any malicious intent is strictly prohibited.
 
-## ⚡ What is HydrAttack
+## What is HydrAttack
 
 External Attack Surface Management system ![HydrAttack](https://hydrattack.com/) is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
+
+## HowTo
+
+1. Install the Docker (if you have already had it, just skip this step)
+   * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
+   * for Windows: https://docs.docker.com/desktop/setup/install/windows-install/)
+   * for MacOS: https://docs.docker.com/desktop/setup/install/mac-install/
 
 ## The risk of SPF/DKIM/DMARC absent
 Each piece of code particularly and each application in general should be written in secure way to avoid any errors which could lead to a particular breach or exposure. The email mechanisms are not an exclusion and also should be protected properly. In this knowledge base article let’s consider main email authentication mechanisms helping us to not be phished and deceived.
