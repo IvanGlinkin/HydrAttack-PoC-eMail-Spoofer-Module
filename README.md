@@ -40,11 +40,11 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
   
 4. Create an image (DO NOT FORGET ABOUT THE DOT (.) )
    
-   `docker build -t docker-hydrattack-poc-email-spoffer .`
+   `docker build -t docker-hydrattack-poc-email-spoofer .`
 
 5. Launch the container
    
-   `docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer`
+   `docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoofer`
    
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
