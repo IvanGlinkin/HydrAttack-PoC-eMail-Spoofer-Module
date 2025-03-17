@@ -40,7 +40,7 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
 
 ---
-===
+
      
 ### Short instruction
   
