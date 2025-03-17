@@ -39,6 +39,8 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
 
+---
+===
      
 ### Short instruction
   
