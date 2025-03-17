@@ -26,7 +26,7 @@ Each piece of code particularly and each application in general should be writte
 
 This means that only 192.168.1.1 and yourmailserver’s mail servers are authorized to send emails for the domain
 
-DomainKeys Identified Mail also known as DKIM is an email authentication method that allows the recipient to verify that an email was actually sent by the claimed sender and was not modified in transit. It does this by adding a digital signature to the email.
+**DomainKeys Identified Mail** also known as **DKIM** is an email authentication method that allows the recipient to verify that an email was actually sent by the claimed sender and was not modified in transit. It does this by adding a digital signature to the email.
 The domain owner generates a key pair, where the public key is published in the domain’s DNS as a TXT record, and the private key is stored securely on the sending mail server.
 
 
@@ -39,13 +39,14 @@ The domain owner generates a key pair, where the public key is published in the 
 ```
 When an email is sent, the mail server uses the private key to create a DKIM signature, which is added as a special DKIM-Signature header in the email. The receiving mail server retrieves the public key from the sender’s DNS which uses to verify the DKIM signature. If the signature matches, the email passes DKIM authentication.
 
-Domain-based Message Authentication, Reporting, and Conformance also known as DMARC builds on SPF and DKIM (DomainKeys Identified Mail) to provide stricter email authentication and reporting. It allows domain owners to specify how failed SPF/DKIM emails should be handled by recipients.
+**Domain-based Message Authentication, Reporting, and Conformance** also known as **DMARC* builds on SPF and DKIM to provide stricter email authentication and reporting. It allows domain owners to specify how failed SPF/DKIM emails should be handled by recipients.
 DMARC record is also published in DNS and If an email fails SPF or DKIM, the recipient’s mail server follows the DMARC policy:
 ```
 •	p=none:	 Take no action, just monitor
 •	p=quarantine:	 Mark as spam
 •	p=reject: 	 Block the email entirely
 ```
+
 
 ### DMARC record example:
 ```
@@ -55,6 +56,7 @@ DMARC record is also published in DNS and If an email fails SPF or DKIM, the rec
 •	TTL: 	1 hour
 ```
 This means all failed emails are blocked (p=reject), reports about the attack are sending to reporting addresses (rua/ruf), and enabling strict mode, ensuring DKIM signatures must match exactly (adkim=s)
+
 
 ### A Complete Security Setup:
 1.	SPF ensures the email comes from an authorized mail server.
