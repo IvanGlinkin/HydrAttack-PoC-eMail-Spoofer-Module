@@ -8,4 +8,4 @@ This tool is strictly for educational and security assessment purposes. It shoul
 
 ## What is HydrAttack
 
-External Attack Surface Management system !(https://hydrattack.com/)[HydrAttack] is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
+External Attack Surface Management system ![HydrAttack](https://hydrattack.com/) is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
