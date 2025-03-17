@@ -7,6 +7,12 @@
 
 ### Table of content
 [Legal Disclaimer](#%EF%B8%8F-legal-disclaimer)
+[What is HydrAttack](#--what-is-hydrattack)
+[How To: Detailed](#detailed-instruction)
+[How To: Short](#short-instruction)
+[The risk of SPF/DKIM/DMARC absent](#the-risk-of-spfdkimdmarc-absent)
+[Report description](#report-description)
+[Step-by-step report](##step-by-step-report)
 
 ---
 
@@ -147,7 +153,7 @@ CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N = 5.3 Medium
 
 ---
 
-### Step-by-step report for bug hunters / pentesters / blue team:
+### Step-by-step report
 
 #### Step 1. Installing mail server on Ubuntu
 ```
