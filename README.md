@@ -12,7 +12,7 @@
 [How To: Detailed](#detailed-instruction)\
 [How To: Short](#short-instruction)\
 [The risk of SPF/DKIM/DMARC absent](#the-risk-of-spfdkimdmarc-absent)\
-[Report description](#report-description)/
+[Report description](#report-description)\
 [Step-by-step report](#step-by-step-report)
 
 ---
