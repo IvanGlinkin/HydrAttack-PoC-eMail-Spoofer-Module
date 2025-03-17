@@ -27,9 +27,11 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    * Windows: `dir HydrAttack-PoC-eMail-Spoofer-Module`
   
 4. Create an image (DO NOT FORGET ABOUT THE DOT (.) )
+   
    `docker build -t docker-hydrattack-poc-email-spoffer .`
 
 5. Launch the container
+   
    `docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer`
    where:
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
