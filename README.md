@@ -12,8 +12,8 @@ This software and associated materials are intended solely for proof-of-concept 
 External Attack Surface Management system ![HydrAttack](https://hydrattack.com/) is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
 
 ## HowTo
-<details>
-<summary> ### Detailed instruction</summary>
+
+### Detailed instruction
   
 1. Install Docker (if you have already had it, just skip this step)
    * for Ubuntu: official page: https://docs.docker.com/engine/install/ubuntu/
@@ -38,11 +38,9 @@ External Attack Surface Management system ![HydrAttack](https://hydrattack.com/)
    
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
-     
-</details>
 
-<details>
-<summary> Short instruction </summary>
+     
+### Short instruction
   
 ```
 cd ~/Documents
@@ -51,8 +49,6 @@ cd HydrAttack-PoC-eMail-Spoofer-Module
 docker build -t docker-hydrattack-poc-email-spoffer .
 docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoffer
 ```
-
-</details>
 
 
 ## The risk of SPF/DKIM/DMARC absent
