@@ -5,6 +5,11 @@
 
 ---
 
+### Table of content
+[Legal Disclaimer](#%EF%B8%8F-legal-disclaimer)
+
+---
+
 ### ⚠️ Legal Disclaimer
 
 This software and associated materials are intended solely for proof-of-concept (PoC) and security research purposes. Unauthorized use of this code for real-world phishing attacks, fraudulent activities, or any malicious intent is strictly prohibited.
