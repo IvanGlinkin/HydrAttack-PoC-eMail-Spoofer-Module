@@ -11,8 +11,7 @@ This software and associated materials are intended solely for proof-of-concept 
 
 ---
 
-### What is HydrAttack
-<a href="https://hydrattack.com/" target=_blank><img src="https://github.com/IvanGlinkin/media_support/blob/main/znak.png?raw=true" width="50"><a>
+### What is HydrAttack <a href="https://hydrattack.com/" target=_blank><img src="https://github.com/IvanGlinkin/media_support/blob/main/znak.png?raw=true" width="25"><a>
 External Attack Surface Management system ![HydrAttack](https://hydrattack.com/) is an innovative risk management platform, designed to help identify and mitigate web application risks in completely new ways
 
 [![X former Twitter](https://cdn-icons-png.flaticon.com/128/5969/5969020.png)](https://twitter.com/EASM_HydrAttack)
