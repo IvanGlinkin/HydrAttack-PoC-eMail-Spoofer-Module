@@ -42,9 +42,9 @@ When an email is sent, the mail server uses the private key to create a DKIM sig
 **Domain-based Message Authentication, Reporting, and Conformance** also known as **DMARC* builds on SPF and DKIM to provide stricter email authentication and reporting. It allows domain owners to specify how failed SPF/DKIM emails should be handled by recipients.
 DMARC record is also published in DNS and If an email fails SPF or DKIM, the recipient’s mail server follows the DMARC policy:
 ```
-•	p=none:	 Take no action, just monitor
+•	p=none:	       Take no action, just monitor
 •	p=quarantine:	 Mark as spam
-•	p=reject: 	 Block the email entirely
+•	p=reject: 	   Block the email entirely
 ```
 
 
