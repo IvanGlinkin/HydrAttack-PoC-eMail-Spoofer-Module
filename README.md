@@ -79,7 +79,7 @@ Each piece of code particularly and each application in general should be writte
 
 **Sender Policy Framework** also known as **SPF** helps verify that an email sent from a domain is coming from an authorized mail server. So, the domain owner publishes an SPF record in DNS (Domain Name System), specifying which mail servers are allowed to send emails on behalf of the domain. When an email is received, the recipient’s mail server checks the SPF record of the sending domain. If the email comes from an authorized mail server, it passes SPF; otherwise, it fails SPF and may be marked as spam or rejected.
 
-#### DNS record example:
+#### SPF record example:
 ```
 •	Type: 	TXT
 •	Name: 	@
