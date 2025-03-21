@@ -102,7 +102,7 @@ The domain owner generates a key pair, where the public key is published in the 
 ```
 When an email is sent, the mail server uses the private key to create a DKIM signature, which is added as a special DKIM-Signature header in the email. The receiving mail server retrieves the public key from the sender’s DNS which uses to verify the DKIM signature. If the signature matches, the email passes DKIM authentication.
 
-**Domain-based Message Authentication, Reporting, and Conformance** also known as **DMARC* builds on SPF and DKIM to provide stricter email authentication and reporting. It allows domain owners to specify how failed SPF/DKIM emails should be handled by recipients.
+**Domain-based Message Authentication, Reporting, and Conformance** also known as **DMARC** builds on SPF and DKIM to provide stricter email authentication and reporting. It allows domain owners to specify how failed SPF/DKIM emails should be handled by recipients.
 DMARC record is also published in DNS and If an email fails SPF or DKIM, the recipient’s mail server follows the DMARC policy:
 ```
 •	p=none:	        Take no action, just monitor
