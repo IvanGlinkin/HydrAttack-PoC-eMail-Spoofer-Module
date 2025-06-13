@@ -8,7 +8,6 @@ import smtplib
 import shutil
 import time
 import email_template as et
-from email.mime.text import MIMEText
 from colorama import Fore, Style
 
 # Aliases
@@ -129,17 +128,48 @@ def set_postfix_generic():
 
 # Sending spoofed email
 def sending_email():
-    msg = MIMEText(et.msg_body, "html")
+    # Adding necessary imports
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.application import MIMEApplication
+    from email.mime.text import MIMEText
+
+    msg = MIMEMultipart()
     msg["Subject"] = et.msg_subject
     msg["From"] = et.msg_from
     msg["To"] = et.msg_to
 
+    html_part = MIMEText(et.msg_body, "html")
+    msg.attach(html_part)
+
+    # Adding the attachement if it is
+    if et.ATTACH:
+        try:
+            with open(et.ATTACH, "rb") as file:
+                attachment = MIMEApplication(
+                    file.read(),
+                    Name=os.path.basename(et.ATTACH)
+                )
+            attachment['Content-Disposition'] = f'attachment; filename="{os.path.basename(et.ATTACH)}"'
+            
+            # Auto defining the MIME-type
+            import mimetypes
+            mime_type, _ = mimetypes.guess_type(et.ATTACH)
+            if mime_type:
+                attachment.add_header('Content-Type', mime_type)
+            
+            msg.attach(attachment)
+            print(f"{color_green}[+]{color_reset} File attached: {et.ATTACH}")
+        except FileNotFoundError:
+            print(f"{color_red}[!]{color_reset} Attachment file not found: {et.ATTACH}")
+
+    # Sending the email
     server = smtplib.SMTP("127.0.0.1", 25)
     server.sendmail(et.msg_from, et.msg_to, msg.as_string())
     server.quit()
+    
     time.sleep(7)
-    print(f"{color_green}[+] Spoofed email has been sent! Please check your mailbox.{color_reset}")
-    print(f"{color_magenta}[!] If you have not received the email, change the address as it could have an antispam filter!{color_reset}")
+    status_msg = "with attachment" if et.ATTACH else "without attachment"
+    print(f"{color_green}[+] Spoofed email {status_msg} has been sent! Please check your mailbox.{color_reset}")
 
 # Launching
 print(banner)
@@ -147,6 +177,7 @@ print(banner)
 # Main app
 if __name__ == "__main__":
     domain = sys.argv[1]
+
     print(f"{color_magenta}[*]{color_reset} Checking SPF records for {domain}:")
     print_spf_record(domain)
     print(f"{color_magenta}[*]{color_reset} Checking DMARC records for {domain}:" )
