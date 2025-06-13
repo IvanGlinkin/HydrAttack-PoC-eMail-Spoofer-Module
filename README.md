@@ -61,7 +61,7 @@ External Attack Surface Management system <a href="https://hydrattack.com/" targ
    * USERNAME - sender username, e.g. *spoofed*@abracadabra.ahha
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
-   * ATTACH - file to attach to the email, e.g. attachment.xlsm
+   * ATTACH - file to attach to the email, e.g. *attachment.xlsm*
 
      
 #### Short instruction
