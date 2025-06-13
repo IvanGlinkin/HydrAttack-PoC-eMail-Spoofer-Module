@@ -1,8 +1,9 @@
 import os
 
+USERNAME = os.environ.get("USERNAME", "spoofed")
 DOMAIN = os.environ.get("DOMAIN", "spoofed.com")
 SENDTO = os.environ.get("SENDTO", "spoofed@spoofed.com")
-USERNAME = os.environ.get("USERNAME", "spoofed")
+ATTACH = os.environ.get("ATTACH", "")
 
 msg_body = f"""
 <!DOCTYPE html>
