@@ -60,6 +60,7 @@ External Attack Surface Management system <a href="https://hydrattack.com/" targ
    
    * DOMAIN - testing domain name, e.g. *abracadabra.ahha*
    * SENDTO - email address, where to send a report, e.g. *your@email.com*
+   * USERNAME - sender username, e.g. *spoofed*@abracadabra.ahha 
 
      
 #### Short instruction
@@ -69,7 +70,7 @@ cd ~/Documents
 git clone https://github.com/IvanGlinkin/HydrAttack-PoC-eMail-Spoofer-Module.git
 cd HydrAttack-PoC-eMail-Spoofer-Module
 docker build -t docker-hydrattack-poc-email-spoofer .
-docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com docker-hydrattack-poc-email-spoofer
+docker run -it --rm -e DOMAIN=abracadabra.ahha -e SENDTO=your@email.com -e USERNAME=spoofed docker-hydrattack-poc-email-spoofer
 ```
 
 ---
