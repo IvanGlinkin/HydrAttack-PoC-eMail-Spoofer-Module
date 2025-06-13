@@ -13,9 +13,10 @@ COPY . /app
 RUN pip3 install --no-cache-dir colorama py-emailprotections --break-system-packages
 
 # Set the default domain value via an environment variable
+ENV USERNAME=spoofed
 ENV DOMAIN=spoofed.com
 ENV SENDTO=spoofed@spoofed.com
-ENV USERNAME=spoofed
+ENV ATTACH=""
 
 # Use bash to enable environment variable expansion
 CMD bash -c "python3 main.py $DOMAIN"
