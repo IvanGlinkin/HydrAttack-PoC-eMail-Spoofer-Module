@@ -170,6 +170,7 @@ def sending_email():
     time.sleep(7)
     status_msg = "with attachment" if et.ATTACH else "without attachment"
     print(f"{color_green}[+] Spoofed email {status_msg} has been sent! Please check your mailbox.{color_reset}")
+    print(f"{color_magenta}[!] If you have not received the email, change the address as it could have an antispam filter!{color_reset}")
 
 # Launching
 print(banner)
