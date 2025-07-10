@@ -42,7 +42,7 @@ banner = f"""
                ++++++++++                
                 ++++++++                    {color_reset}{color_green}[web-site]{color_reset} https://hydrattack.com/
 {color_blue}                ++++++++                    {color_reset}{color_green}[Xtwitter]{color_reset} https://twitter.com/EASM_HydrAttack
-{color_blue}                 ++++++                     {color_reset}{color_green}[telegram]{color_reset} https://t.me/EASM_HydrAttack
+{color_blue}                 ++++++                     {color_reset}{color_green}[telegram]{color_reset} https://t.me/HydrAttack
 {color_blue}                  ++++                      {color_reset}{color_green}[linkedin]{color_reset} https://www.linkedin.com/company/HydrAttack
 {color_blue}                  ++++                  
                    ++                   
