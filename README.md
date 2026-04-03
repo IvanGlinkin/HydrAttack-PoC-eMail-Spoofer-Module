@@ -117,10 +117,11 @@ DMARC record is also published in DNS and If an email fails SPF or DKIM, the rec
 ```
 •	Type: 	TXT
 •	Name: 	_dmark
-•	Data: 	v=DMARC1; p=reject; rua=mailto:reports@yourdomain.com; ruf=mailto:forensics@yourdomain.com; adkim=s; aspf=s
+•	Data: 	v=DMARC1; p=reject; sp=reject; rua=mailto:reports@yourdomain.com; ruf=mailto:forensics@yourdomain.com; adkim=s; aspf=s
 •	TTL: 	1 hour
 ```
 This means all failed emails are blocked (p=reject), reports about the attack are sending to reporting addresses (rua/ruf), and enabling strict mode, ensuring DKIM signatures must match exactly (adkim=s)
+sp=reject - the same rule for your subdomains
 
 
 ### A Complete Security Setup:
