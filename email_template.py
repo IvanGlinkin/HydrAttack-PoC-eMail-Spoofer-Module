@@ -85,7 +85,7 @@ msg_body = f"""
         Configure SPF/DMARC records with policies suitable for the domain:<br>
         <pre class=code-block>
 v=spf1 include:mx.{DOMAIN} -all
-v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@{DOMAIN}; ruf=mailto:dmarc-failures@{DOMAIN}; pct=100;</code></pre></p>
+v=DMARC1; p=quarantine; sp=reject; rua=mailto:dmarc-reports@{DOMAIN}; ruf=mailto:dmarc-failures@{DOMAIN}; pct=100;</code></pre></p>
         
         <p><b>Threat</b><br>
         Anonymous attacker from Internet </p>
