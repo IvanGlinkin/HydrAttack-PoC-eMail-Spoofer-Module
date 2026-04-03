@@ -109,7 +109,7 @@ DMARC record is also published in DNS and If an email fails SPF or DKIM, the rec
 ```
 •	p=none:	        Take no action, just monitor
 •	p=quarantine:	Mark as spam
-•	p=reject: 	  Block the email entirely
+•	p=reject: 	    Block the email entirely
 ```
 
 
@@ -145,7 +145,7 @@ Configure SPF/DMARC records with policies suitable for the domain:
 
 ```
 v=spf1 include:mx.abracadabra.ahha -all
-v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@abracadabra.ahha; ruf=mailto:dmarc-failures@abracadabra.ahha; pct=100;
+v=DMARC1; p=quarantine; sp=reject; rua=mailto:dmarc-reports@abracadabra.ahha; ruf=mailto:dmarc-failures@abracadabra.ahha; pct=100;
 ```
 
 #### Threat
