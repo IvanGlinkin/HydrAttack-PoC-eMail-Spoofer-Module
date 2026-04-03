@@ -109,7 +109,7 @@ DMARC record is also published in DNS and If an email fails SPF or DKIM, the rec
 ```
 •	p=none:	        Take no action, just monitor
 •	p=quarantine:	Mark as spam
-•	p=reject: 	Block the email entirely
+•	p=reject: 	  Block the email entirely
 ```
 
 
@@ -121,6 +121,7 @@ DMARC record is also published in DNS and If an email fails SPF or DKIM, the rec
 •	TTL: 	1 hour
 ```
 This means all failed emails are blocked (p=reject), reports about the attack are sending to reporting addresses (rua/ruf), and enabling strict mode, ensuring DKIM signatures must match exactly (adkim=s)
+
 sp=reject - the same rule for your subdomains
 
 
