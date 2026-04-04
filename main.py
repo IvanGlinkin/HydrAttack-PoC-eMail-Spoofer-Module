@@ -79,24 +79,80 @@ def print_dmarc_record(domain):
     else:
         print(f"{color_red}[!]{color_reset} {domain} has no DMARC record!")
 
+def get_domain_chain(domain):
+    parts = domain.split(".")
+    chain = []
+
+    for i in range(len(parts) - 1):
+        sub = ".".join(parts[i:])
+        chain.append(sub)
+
+    return chain
+
+def get_spf_record_recursive(domain):
+    for d in get_domain_chain(domain):
+        spf_record = spf_lib.SpfRecord.from_domain(d)
+        if spf_record and spf_record.record:
+            return d, spf_record.record
+    return None, None
+
+def get_dmarc_record_recursive(domain):
+    for d in get_domain_chain(domain):
+        dmarc = dmarc_lib.DmarcRecord.from_domain(d)
+        if dmarc and dmarc.record:
+            return d, dmarc
+    return None, None
+
+def get_root_domain(domain):
+    parts = domain.split(".")
+    if len(parts) >= 2:
+        return ".".join(parts[-2:])
+    return domain
+
+def print_root_dmarc(domain):
+    root_domain = get_root_domain(domain)
+    dmarc = dmarc_lib.DmarcRecord.from_domain(root_domain)
+
+    print(f"{color_magenta}[*]{color_reset} Root domain DMARC ({root_domain}):")
+
+    if dmarc and dmarc.record:
+        print(f"{color_green}[+]{color_reset} Found DMARC record:", str(dmarc.record))
+    else:
+        print(f"{color_red}[!]{color_reset} {root_domain} has no DMARC record!")
+
 # Final output
 def check_spoofing_possible(domain):
-    spf_record = spf_lib.SpfRecord.from_domain(domain)
-    dmarc = dmarc_lib.DmarcRecord.from_domain(domain)
+    spf_domain, spf_record = get_spf_record_recursive(domain)
+    dmarc_domain, dmarc = get_dmarc_record_recursive(domain)
 
-    # Check if SPF and DMARC records are present
-    if not spf_record or not spf_record.record:
-        return True
-    
-    if not dmarc or not dmarc.record:
-        return True
-    
-    # Optionally, check if both records are strong (if needed for spoofing analysis)
-    if not is_spf_record_strong(domain) or not is_dmarc_record_strong(domain):
-        return True
+    if not spf_record:
+        return "no_protection", spf_domain, dmarc_domain, False, False
 
-    # No spoofing detected
-    return False
+    if not dmarc:
+        return "no_dmarc", spf_domain, dmarc_domain, False, False
+
+    inherited = (dmarc_domain != domain)
+
+    if inherited:
+        if dmarc.subdomain_policy:
+            policy = dmarc.subdomain_policy
+            sp_missing = False
+        else:
+            policy = dmarc.policy
+            sp_missing = True  # нет sp, используем p для поддоменов
+    else:
+        policy = dmarc.policy
+        sp_missing = False
+
+    # 🔹 Обработка разных значений
+    if policy == "reject":
+        return "reject", spf_domain, dmarc_domain, inherited, sp_missing
+    elif policy == "quarantine":
+        return "quarantine", spf_domain, dmarc_domain, inherited, sp_missing
+    elif policy == "none":
+        return "none", spf_domain, dmarc_domain, inherited, sp_missing
+    else:
+        return "weak", spf_domain, dmarc_domain, inherited, sp_missing
 
 # Setting postfix main.cf
 def set_postfix_config():
@@ -183,8 +239,36 @@ if __name__ == "__main__":
     print_spf_record(domain)
     print(f"{color_magenta}[*]{color_reset} Checking DMARC records for {domain}:" )
     print_dmarc_record(domain)
+
+    root_domain = get_root_domain(domain)
+    if domain != root_domain:
+        print_root_dmarc(domain)
+
     if check_spoofing_possible(domain):
-        print(f"{color_red}[+] Spoofing is possible for {domain}!{color_reset}\n")
+        result, spf_domain, dmarc_domain, inherited, sp_missing = check_spoofing_possible(domain)
+
+        if result == "reject":
+            if inherited:
+                if sp_missing:
+                    print(f"{color_magenta}[!] Spoofing is very likely to be blocked for {domain} (inherited DMARC reject from {dmarc_domain}, no sp specified). We'll still test sending.{color_reset}\n")
+                else:
+                    print(f"{color_green}[-] Spoofing is NOT effective for {domain} (inherited DMARC reject from {dmarc_domain}).{color_reset}\n")
+                    sys.exit(0)
+            else:
+                print(f"{color_green}[-] Spoofing is NOT effective for {domain} (DMARC reject).{color_reset}\n")
+                sys.exit(0)
+
+        elif result == "quarantine":
+            if inherited:
+                print(f"{color_magenta}[!] Spoofing is possible for {domain}, but emails will likely go to SPAM (inherited DMARC quarantine from {dmarc_domain}).{color_reset}\n")
+            else:
+                print(f"{color_magenta}[!] Spoofing is possible for {domain}, but emails will likely go to SPAM (DMARC quarantine).{color_reset}\n")
+
+        elif result == "none":
+            print(f"{color_red}[+] Spoofing is possible for {domain} (inherited DMARC none from {dmarc_domain}).{color_reset}\n")
+
+        elif result in ["no_protection", "no_dmarc", "weak"]:
+            print(f"{color_red}[+] Spoofing is possible for {domain}!{color_reset}\n")
 
         print(f"{color_magenta}[*]{color_reset} Start preparing the environment to send the spoofed eMail" )
 
@@ -210,5 +294,3 @@ if __name__ == "__main__":
 
     else:
         print(f"{color_green}[-] Spoofing is not possible for {domain}!{color_reset}")
-
-print()
