@@ -12,6 +12,12 @@ COPY . /app
 # Install Python requirements
 RUN pip3 install --no-cache-dir colorama py-emailprotections --break-system-packages
 
+#Creating chroot
+RUN mkdir -p /var/spool/postfix/etc \
+    && cp /etc/resolv.conf /var/spool/postfix/etc/ 2>/dev/null || true \
+    && cp /etc/hosts /var/spool/postfix/etc/ 2>/dev/null || true \
+    && cp /etc/services /var/spool/postfix/etc/ 2>/dev/null || true
+
 # Set the default domain value via an environment variable
 ENV USERNAME=spoofed
 ENV DOMAIN=spoofed.com
@@ -19,4 +25,4 @@ ENV SENDTO=spoofed@spoofed.com
 ENV ATTACH=""
 
 # Use bash to enable environment variable expansion
-CMD bash -c "python3 main.py $DOMAIN"
+ENTRYPOINT ["bash", "-c", "python3 main.py $DOMAIN"]
